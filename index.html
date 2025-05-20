@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fressy Laundry | Bersih dan Cepat untuk Anak Kost</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #f5faff;
+      color: #024ea2;
+      line-height: 1.6;
+      padding-top: 70px; /* space for fixed header */
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #0288d1;
+      padding: 15px 30px;
+      color: white;
+      box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    header .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      cursor: default;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #a9d6ff;
+    }
+    .btn-login {
+      margin-left: 25px;
+      background: white;
+      color: #0288d1;
+      padding: 8px 16px;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .btn-login:hover {
+      background-color: #016dbf;
+      color: white;
+    }
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+    section {
+      margin-bottom: 80px;
+    }
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 60px;
+      padding-top: 20px;
+    }
+    .hero-text {
+      flex: 1 1 400px;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #0469c1;
+      max-width: 480px;
+      margin-bottom: 30px;
+    }
+    .btn-primary {
+      background: #0288d1;
+      color: white;
+      padding: 14px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background-color: #016dbf;
+    }
+    .hero-image {
+      flex: 1 1 400px;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgb(2 136 209 / 0.3);
+    }
+    /* About */
+    #about h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+      color: #024ea2;
+      text-align: center;
+    }
+    #about p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      color: #333;
+      line-height: 1.8;
+      text-align: center;
+    }
+    /* Layanan */
+    #layanan h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      font-weight: 700;
+      color: #024ea2;
+      text-align: center;
+    }
+    .layanan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+    .layanan-item {
+      background: white;
+      padding: 25px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgb(0 0 0 / 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      text-align: center;
+    }
+    .layanan-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgb(2 136 209 / 0.3);
+    }
+    .layanan-icon {
+      font-size: 3rem;
+      color: #0288d1;
+      margin-bottom: 20px;
+    }
+    .layanan-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #024ea2;
+    }
+    .layanan-desc {
+      font-size: 1rem;
+      color: #444;
+    }
+    /* Kontak */
+    #kontak h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      font-weight: 700;
+      color: #024ea2;
+      text-align: center;
+    }
+    #kontak p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 8px auto;
+      color: #333;
+      text-align: center;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-text, .hero-image {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Fressy Laundry</div>
+    <nav>
+      <a href="#hero">Beranda</a>
+      <a href="#about">Tentang Kami</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#kontak">Kontak</a>
+      <a href="login.html" class="btn-login">Login</a>
+      
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-text">
+        <h1>Bersih dan Cepat untuk Anak Kost</h1>
+        <p>Fressy Laundry hadir untuk memberikan layanan laundry terbaik bagi anak kost yang ingin hidup praktis dan rapi tanpa ribet. Cuci, keringkan, dan antar ke kamar kost kamu dengan mudah.</p>
+        <a href="#layanan" class="btn-primary">Lihat Layanan Kami</a>
+      </div>
+      <div class="hero-image">
+        <img src="c:\Users\Lenovo\OneDrive\Gambar\133816687192345448.jpg" alt="Pakaian bersih dan segar siap antar ke kamar kost" />
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>Tentang Fressy Laundry</h2>
+      <p>Fressy Laundry berdiri dengan tujuan memberikan kemudahan hidup bagi anak kost yang ingin hemat waktu dan tenaga. Dengan layanan antar-jemput laundry, kami memastikan pakaian Anda selalu bersih dan rapi tanpa repot.</p>
+      <p>Kami mengutamakan kualitas dan kecepatan layanan, sehingga Anda bisa fokus pada aktivitas kuliah dan pekerjaan tanpa khawatir masalah cucian.</p>
+    </section>
+
+    <section id="layanan" class="layanan" style="padding: 60px 20px; background-color: #e9f6ff;">
+  <h2 style="text-align: center; font-size: 1.8rem; margin-bottom: 40px; color: #024ea2;">Layanan Kami</h2>
+  <div class="layanan-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto;">
+
+    <a href="cucikering.html" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="layanan-item" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+        <div class="layanan-icon" style="font-size: 2.2rem;">🧼</div>
+        <h3 style="margin: 10px 0; font-size: 1.1rem;">Cuci Kering</h3>
+        <p style="font-size: 0.9rem;">Pakaian dicuci dan dikeringkan hingga siap pakai tanpa perlu ribet.</p>
+      </div>
+    </a>
+
+    <a href="cucisetrika.html" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="layanan-item" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+        <div class="layanan-icon" style="font-size: 2.2rem;">🧺</div>
+        <h3 style="margin: 10px 0; font-size: 1.1rem;">Cuci Setrika</h3>
+        <p style="font-size: 0.9rem;">Cucian kamu juga disetrika agar langsung bisa digantung atau disimpan.</p>
+      </div>
+    </a>
+
+    <a href="setrikasaja.html" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="layanan-item" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+        <div class="layanan-icon" style="font-size: 2.2rem;">👔</div>
+        <h3 style="margin: 10px 0; font-size: 1.1rem;">Setrika Saja</h3>
+        <p style="font-size: 0.9rem;">Baju kamu udah bersih? Serahkan pada kami untuk bagian setrikanya aja.</p>
+      </div>
+    </a>
+
+    <a href="paketexpress.html" target="_blank" style="text-decoration: none; color: inherit;">
+      <div class="layanan-item" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+        <div class="layanan-icon" style="font-size: 2.2rem;">⚡</div>
+        <h3 style="margin: 10px 0; font-size: 1.1rem;">Paket Express</h3>
+        <p style="font-size: 0.9rem;">Butuh cepat? Layanan 24 jam selesai siap menyelamatkan harimu.</p>
+      </div>
+    </a>
+
+    <a href="antarjemput.html" target="_blank" style="text-decoration: none; color: inherit; max-width: 300px; margin: 40px auto; display: block;">
+      <div class="layanan-item" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+        <div class="layanan-icon" style="font-size: 2.2rem;">📦</div>
+        <h3 style="margin: 10px 0; font-size: 1.1rem;">Antar Jemput</h3>
+        <p style="font-size: 0.9rem;">Kami jemput cucian ke kost kamu dan kirim kembali setelah selesai.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+
+    <section id="kontak">
+      <h2>Kontak Kami</h2>
+      <p>Untuk informasi lebih lanjut, hubungi kami di:</p>
+      <p><strong>Email:</strong> info@gokostlaundry.com</p>
+      <p><strong>Telepon:</strong> 0812-3456-7890</p>
+      <p><strong>Alamat:</strong> Jalan Kost Uvers</p>
+    </section>
+  </main>
+
+<footer style="text-align: center;">
+  <p>&copy; 2025 Fressy Laundry. Semua hak cipta dilindungi.</p>
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Platform Laundry</title>
+  <style>
+    html {
+      scroll-behavior: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Konten lainnya tetap -->
+
+  <section id="data" style="padding: 60px 20px; background-color: #f0f8ff;">
+    <h2 style="text-align: center; font-size: 2rem; color: #024ea2; margin-bottom: 20px;">⚡ Data Mahasiswa Terpilih ⚡</h2>
+    <p style="text-align: center; font-size: 1.2rem; color: #444; margin-bottom: 40px;">
+      Mahasiswa keren yang berdedikasi menciptakan inovasi di era digital.
+    </p>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+      <!-- Kotak Mahasiswa Baru -->
+      <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 500px; text-align: center;">
+        <h3 style="font-size: 1rem; color: #0288d1; margin-bottom: 10px;">Devina Satyani-202412001</h3>
+        <h3 style="font-size: 1rem; color: #0288d1; margin-bottom: 10px;">Nurhayati-2024122002</h3>
+        <h3 style="font-size: 1rem; color: #0288d1; margin-bottom: 10px;">Calvin Justin-2024122033</h3>
+        <h3 style="font-size: 1rem; color: #0288d1; margin-bottom: 10px;">Ferry Lucky-2024122037</h3>
+        <h3 style="font-size: 1rem; color: #0288d1; margin-bottom: 10px;">Claos Bali-2024122043</h3>
+        <h3 style="font-size: 1rem; color: #0288d1; margin-bottom: 10px;">Indra Gunawan-2024122046</h3>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
